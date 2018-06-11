@@ -11,7 +11,7 @@ namespace NQueenPuzzle {
         }
 
         private IEnumerable<Board> SolveInner(Board board, int y) {
-            if (y > board.Width) {
+            if (y > board.Size) {
                 count++;
                 yield return new Board(board);
             }

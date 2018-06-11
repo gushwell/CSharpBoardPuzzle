@@ -1,5 +1,5 @@
 ﻿using System;
-using Gushwell.Puzzle;
+using Puzzle;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,17 +16,16 @@ namespace NQueenPuzzle {
 
     class Board : BoardBase<Piece> {
 
-        public int Width { get; private set; }
+        public int Size { get { return XSize; } }
 
-        public Board(int width) : base(width, width) {
+        public Board(int size) : base(size, size) {
 
-            this.Width = width;
             foreach (var p in GetAllIndexes())
                 this[p] = Piece.Empty;
         }
 
         public Board(Board board) : base(board) {
-            this.Width = board.Width;
+            
         }
 
         public void Put(int place) {
@@ -69,7 +68,7 @@ namespace NQueenPuzzle {
             foreach (var p in GetAllIndexes()) {
                 var c = this[p].Value;
                 Console.Write($"{c} ");
-                if (++i == Width) {
+                if (++i == Size) {
                     Console.WriteLine();
                     i = 0;
                 }
