@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gushwell.Puzzle {
+namespace Puzzle {
     // 汎用の盤面クラス
     // Tは、盤面に置けるオブジェクトの型。参照型でnew()ができれば何でも良い。
     public abstract class BoardBase<T> where T : class, new() {
