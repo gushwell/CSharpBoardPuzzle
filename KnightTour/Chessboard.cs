@@ -23,26 +23,16 @@ namespace KnightTour {
     }
 
     // チェスボードを表すクラス
-    // 描画は担当しない。あくまでも内部構造。ChessboardCanvasが描画を担当
+    // 描画は担当しない。
     public class Chessboard : BoardBase<Piece> {
         private int _count = 0;
-        private int _startPlace;
+        //private int _startPlace;
         private int _nowPlace;
 
-        public Chessboard(int width) : base(width, width) {
-            ClearAll();
-        }
-
-        // 開始位置を決定
-        public int StartPlace {
-            get { return _startPlace; }
-            set {
-                if (_startPlace != 0)
-                    ClearAll();
-                _count = 0;
-                _startPlace = value;
-                Jump(_startPlace);
-            }
+        public Chessboard() : base(8, 8) {
+            base.ClearAll();
+            foreach (var p in this.GetAllIndexes())
+                this[p] = Piece.Empty;
         }
 
         // EmptyPiece 以外の全てのPieceを列挙する
@@ -68,25 +58,17 @@ namespace KnightTour {
                             .Max(fm => fm.Number);
         }
 
-        // 全てをクリア
-        public override void ClearAll() {
-            base.ClearAll();
-            foreach (var p in this.GetAllIndexes())
-                this[p] = Piece.Empty;
-            _startPlace = 0;
-        }
-
         // 巡回したか
         public bool IsFin() {
             return this.GetAllIndexes().All(n => this[n] is Footmark);
         }
 
         // Start位置に戻ってこられる状態かを調べる。
-        public bool CanBackHome() {
-            return Destinations(StartPlace).Any(n => {
+        public bool CanBackHome(int nowPlace) {
+            return Destinations(nowPlace).Any(n => {
                 var piece = this[n] as Footmark;
                 if (piece != null) {
-                    if (piece.Number == this.XSize * this.YSize)
+                    if (piece.Number == 1)
                         return true;
                 }
                 return false;

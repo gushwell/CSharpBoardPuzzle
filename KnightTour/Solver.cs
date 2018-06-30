@@ -5,17 +5,16 @@ using System.Linq;
 namespace KnightTour {
     class Solver {
         private int _startPlace;
-        public Chessboard Solve(Chessboard board) {
-            if (board.StartPlace == 0)
-                board.StartPlace = board.ToIndex(2, 1);
-            _startPlace = board.StartPlace;
+        public Chessboard Solve(Chessboard board, int startIndex) {
+            _startPlace = startIndex;
+            board.Jump(_startPlace);
             return SolveInner(board, _startPlace);
         }
 
         private Chessboard SolveInner(Chessboard board, int nowPlace) {
             // 全ての位置に移動し、現在の位置からStart地点にジャンプできれば、解が求まった。
             if (board.IsFin()) {
-                if (board.CanBackHome())
+                if (board.CanBackHome(nowPlace))
                     return board;
                 return null;
             }
