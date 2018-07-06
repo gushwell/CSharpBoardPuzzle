@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightTour", "KnightTour\Kn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperQueenPuzzle", "HyperQueenPuzzle\HyperQueenPuzzle.csproj", "{3799931B-0E72-4947-B42F-00D2AB583124}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrangementOfKnights", "ArrangementOfKnight\ArrangementOfKnights.csproj", "{F555D374-7751-49BC-8F0B-F8E7308A4807}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,5 +45,9 @@ Global
 		{3799931B-0E72-4947-B42F-00D2AB583124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3799931B-0E72-4947-B42F-00D2AB583124}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3799931B-0E72-4947-B42F-00D2AB583124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F555D374-7751-49BC-8F0B-F8E7308A4807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F555D374-7751-49BC-8F0B-F8E7308A4807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F555D374-7751-49BC-8F0B-F8E7308A4807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F555D374-7751-49BC-8F0B-F8E7308A4807}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
