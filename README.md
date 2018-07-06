@@ -1,5 +1,9 @@
 # CSharpBoardPuzzle
 
+## ArrangementOfKnights
+
+騎士の最適配置問題。ナイト(騎士)をチェスボードに配置し、全ての空きが利き筋になるようにする問題。
+
 ## GoishiHiroi
 
 パズル碁石拾いを解く
