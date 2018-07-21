@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gushwell.Puzzle {
+namespace Puzzle {
     // 汎用の盤面クラス
     // Tは、盤面に置けるオブジェクトの型。参照型でnew()ができれば何でも良い。
     public abstract class BoardBase<T> where T : class, new() {
@@ -15,12 +15,17 @@ namespace Gushwell.Puzzle {
         // 盤のカラム数（横方向）
         public int XSize { get; private set; }
 
+        // 番兵も含めた幅のサイズ
+        private int OuterWidth => XSize + 4;
+
+        private int OuterHeight => XSize + 4;
+
         // コンストラクタ
         public BoardBase(int xsize, int ysize) {
             this.YSize = ysize;
             this.XSize = xsize;
 
-            _pieces = new T[(xsize + 2) * (ysize + 2)];
+            _pieces = new T[OuterWidth * OuterHeight];
 
             // 盤データの初期化 - 盤の周りはnull(番兵)をセットしておく
             ClearAll();
@@ -34,9 +39,8 @@ namespace Gushwell.Puzzle {
         }
 
         // 番兵も含めたボード配列の長さ
-        public int BoardLength {
-            get { return _pieces.Length; }
-        }
+        public int BoardLength => _pieces.Length;
+
 
         // インデクサ (x,y)の位置の要素へアクセスする
         public T this[int index] {
@@ -51,17 +55,18 @@ namespace Gushwell.Puzzle {
         }
 
         // Location から _coinのIndexを求める
-        public int ToIndex(int x, int y) => x + y * (XSize + 2);
+        public int ToIndex(int x, int y) => x + 1 + (y + 1) * OuterWidth;
 
         // IndexからLocationを求める (ToIndexの逆演算)
-        public (int, int) ToLocation(int index) => (index % (XSize + 2), index / (XSize + 2));
+        public (int, int) ToLocation(int index)
+            => (index % OuterWidth - 1, index / OuterWidth - 1);
+
+
+        public int ToDirection(int dx, int dy) => dy * OuterWidth + dx;
 
         // 本来のボード上の位置(index)かどうかを調べる
-        public virtual bool IsOnBoard(int index) {
-            if (0 <= index && index < BoardLength)
-                return this[index] != null;
-            return false;
-        }
+        public virtual bool IsOnBoard(int index) => this[index] != null;
+
 
         // 全てのPieceをクリアする
         public virtual void ClearAll() {
@@ -82,25 +87,25 @@ namespace Gushwell.Puzzle {
 
         // (x,y)からdirection方向の位置を列挙する　(x,y)含む
         public virtual IEnumerable<int> EnumerateIndexes(int x, int y, int direction) {
-            for (int index = ToIndex(x, y); IsOnBoard(index) && this[index] != null; index += direction)
+            for (int index = ToIndex(x, y); IsOnBoard(index); index += direction)
                 yield return index;
         }
 
         // (x,y)から右(水平)の位置を列挙する　(x,y)含む
         public virtual IEnumerable<int> Horizontal(int x, int y)
-            => EnumerateIndexes(x, y, 1);
+            => EnumerateIndexes(x, y, ToDirection(1, 0));
 
         // (x,y)から下(垂直)の位置を列挙する　(x,y)含む
         public virtual IEnumerable<int> Virtical(int x, int y)
-            => EnumerateIndexes(x, y, this.XSize + 2);
+            => EnumerateIndexes(x, y, ToDirection(0, 1));
 
         // (x,y)から右斜め下(45度)の位置を列挙する　(x,y)含む
         public virtual IEnumerable<int> SlantR(int x, int y)
-            => EnumerateIndexes(x, y, this.XSize + 2 + 1);
+            => EnumerateIndexes(x, y, ToDirection(1, 1));
 
         // (x,y)から左斜め下(45度)の位置を列挙する　(x,y)含む
         public virtual IEnumerable<int> SlantL(int x, int y)
-            => EnumerateIndexes(x, y, this.XSize + 2 - 1);
+            => EnumerateIndexes(x, y, ToDirection(-1, 1));
 
     }
 }
