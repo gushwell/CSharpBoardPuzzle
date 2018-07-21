@@ -1,9 +1,11 @@
-﻿using System;
-using Puzzle;
-using System.Linq;
+﻿using Puzzle;
+using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Linq;
 
 namespace ArrangementOfKnights {
+
     public class Piece {
         public static readonly Piece Empty = new Piece { Value = '.' };
         public static readonly Piece Knight = new Piece { Value = 'K' };
@@ -48,16 +50,23 @@ namespace ArrangementOfKnights {
             _allIndexes = GetAllIndexes().ToArray();
             foreach (var p in _allIndexes)
                 this[p] = Piece.Empty;
-            int width2 = 8 + 2;
-            _allDestinations = new int[] { -(width2 + 2), +(width2 - 2), -(width2 * 2 + 1), (width2 * 2 - 1),
-                                 -(width2 * 2 - 1), (width2 * 2 + 1), -(width2 - 2), +(width2 + 2), };
+            _allDestinations = new int[] {
+                ToDirection(-1, -2),
+                ToDirection(+1, -2),
+                ToDirection(-2, -1),
+                ToDirection(+2, -1),
+                ToDirection(-1, +2),
+                ToDirection(+1, +2),
+                ToDirection(-2, +1),
+                ToDirection(+2, +1),
+            };
         }
 
         // コピーコンストラクタ
         public Chessboard(Chessboard board) : base(board) {
             this._allIndexes = board._allIndexes.ToArray();
             this._allDestinations = board._allDestinations.ToArray();
-            // ここで、深いコピーをしているが、Empty, Knightは唯一一つのオブジェクトにしたい。
+            // ここで、深いコピーをしてしまうが、Empty, Knightは唯一一つのオブジェクトにしたい。
             foreach (var ix in board.GetAllIndexes()) {
                 if (this[ix] is Footmark)
                     this[ix] = board[ix].Clone();
@@ -122,10 +131,10 @@ namespace ArrangementOfKnights {
 
         // ４つのブロックの座標(インデックス）を設定。かなり力業だが...
         // 4隅の座標は、各配列の最後に格納する。
-        private static int[] _blockA = new int[] { 31, 32, 33, 34, 41, 42, 43, 44, 13, 14, 23, 24, 11, 12, 21, 22, };
-        private static int[] _blockB = new int[] { 35, 36, 37, 38, 45, 46, 47, 48, 15, 16, 25, 26, 17, 18, 27, 28, };
-        private static int[] _blockC = new int[] { 51, 52, 53, 54, 61, 62, 63, 64, 73, 74, 83, 84, 71, 72, 81, 82, };
-        private static int[] _blockD = new int[] { 55, 56, 57, 58, 65, 66, 67, 68, 75, 76, 85, 86, 77, 78, 87, 88, };
+        private static int[] _blockA = new int[] { 28, 29, 40, 41, 50, 51, 52, 53, 62, 63, 64, 65, 26, 27, 38, 39, };
+        private static int[] _blockB = new int[] { 30, 31, 42, 43, 54, 55, 56, 57, 66, 67, 68, 69, 32, 33, 44, 45, };
+        private static int[] _blockC = new int[] { 74, 75, 76, 77, 86, 87, 88, 89, 100, 101, 112, 113, 98, 99, 110, 111, };
+        private static int[] _blockD = new int[] { 78, 79, 80, 81, 90, 91, 92, 93, 102, 103, 114, 115, 104, 105, 116, 117, };
 
         public int[] BlockA() {
             return _blockA;
@@ -167,4 +176,5 @@ namespace ArrangementOfKnights {
             Console.WriteLine();
         }
     }
+
 }
