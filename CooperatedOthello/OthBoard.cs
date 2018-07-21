@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Puzzle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Puzzle;
+
+
+// Boardから継承し、特有の機能を追加
 
 namespace CooperatedOthello {
     public class Stone {
@@ -65,7 +68,17 @@ namespace CooperatedOthello {
 
         // ８つの方向を列挙 （このBoardは、番兵用に一回り大きなサイズとなっている）
         public IEnumerable<int> Directions() {
-            return new int[] { -11, -10, -9, 1, 11, 10, 9, -1 };
+            //return new int[] { -OuterWidth-1, -OuterWidth, -OuterWidth+1, 1, OuterWidth + 1, OuterWidth, OuterWidth-1, -1 };
+            return new int[] {
+                ToDirection(-1, -1),
+                ToDirection( 0, -1),
+                ToDirection(+1, -1),
+                ToDirection(+1,  0),
+                ToDirection(+1, +1),
+                ToDirection( 0, +1),
+                ToDirection(-1, +1),
+                ToDirection(-1,  0),
+            };
         }
 
         // 置ける場所を列挙する
@@ -102,7 +115,7 @@ namespace CooperatedOthello {
             return (this[np] == stone);
         }
 
-        // direction方向の石をひっくり返えす
+        // direction方向の石をひっくり返えす 
         public void Reverse(Stone stone, int place, int direction) {
             if (!FindStone(stone, place, direction))
                 return;
@@ -145,4 +158,5 @@ namespace CooperatedOthello {
             Console.WriteLine();
         }
     }
+
 }

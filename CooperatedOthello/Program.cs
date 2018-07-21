@@ -14,6 +14,7 @@ namespace CooperatedOthello {
                 var (x, y) = board.ToLocation(move.Place);
                 Console.WriteLine($"{move.Stone.Value} ({x}, {y})");
             }
+            Console.WriteLine("Enterキーを押してください。");
             Console.ReadLine();
             // 棋譜を再現
             Replay(moves);
