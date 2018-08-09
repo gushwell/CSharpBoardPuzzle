@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrangementOfKnights", "Arr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CooperatedOthello", "CooperatedOthello\CooperatedOthello.csproj", "{2A645C10-5F1A-48A4-84A3-02560DBA9BBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LessThanThreePuzzle", "LessThanThreePuzzle\LessThanThreePuzzle.csproj", "{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,5 +57,9 @@ Global
 		{2A645C10-5F1A-48A4-84A3-02560DBA9BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A645C10-5F1A-48A4-84A3-02560DBA9BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A645C10-5F1A-48A4-84A3-02560DBA9BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
