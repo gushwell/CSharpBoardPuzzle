@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace GoishiHiroi {
     class Solver {
         private Board _board;
@@ -29,7 +28,7 @@ namespace GoishiHiroi {
                 Moves.Add(np);
                 if (SolveInner(np, dir))
                     return true;
-                _board[np] = Stone.White;
+                _board[np] = Stone.Black;
                 Moves.Remove(np);
             }
             return false;
@@ -47,7 +46,7 @@ namespace GoishiHiroi {
         }
 
         public IEnumerable<int> StoneIndexes() {
-            return _board.GetAllIndexes().Where(i => _board[i] == Stone.White);
+            return _board.GetAllIndexes().Where(i => _board[i] == Stone.Black);
         }
     }
 }

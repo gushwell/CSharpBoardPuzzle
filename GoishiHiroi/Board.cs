@@ -5,7 +5,7 @@ using Gushwell.Puzzle;
 namespace GoishiHiroi {
     class Stone {
         public static readonly Stone Empty = new Stone { Value = '.' };
-        public static readonly Stone White = new Stone { Value = 'O' };
+        public static readonly Stone Black = new Stone { Value = 'X' };
         public char Value { get; set; }
     }
 
@@ -14,7 +14,7 @@ namespace GoishiHiroi {
         public Board(char[,] data) : base(data.GetLength(0), data.GetLength(1)) {
             for (int x = 0; x < data.GetLength(0); x++)
                 for (int y = 0; y < data.GetLength(1); y++)
-                    this[x + 1, y + 1] = data[x, y] == ' ' ? Stone.Empty : Stone.White;
+                    this[x + 1, y + 1] = data[x, y] == ' ' ? Stone.Empty : Stone.Black;
         }
 
         // コピーコンストラクタ
@@ -29,7 +29,7 @@ namespace GoishiHiroi {
         // directionの方向へ移動
         public int Go(int p, int direction) {
             while (this[p] != null) {
-                if (this[p] == Stone.White)
+                if (this[p] == Stone.Black)
                     return p;
                 p += direction;
             }

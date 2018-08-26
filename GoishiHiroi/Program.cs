@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace GoishiHiroi {
     class Program {
@@ -16,9 +14,20 @@ namespace GoishiHiroi {
 
         // 初期状態設定
         private static char[,] Initialize() {
-            string[] lines = File.ReadAllLines("data.txt")
-                                 .Select(x => x.Trim('"'))
-                                 .ToArray();
+            string[] lines = new string[] {
+                "             ",
+                "  X X X X X  ",
+                "   X X X X   ",
+                "    X X X    ",
+                "     X X     ",
+                "  X  X X  X  ",
+                "     X X     ",
+                "    X X X    ",
+                "   X X X X   ",
+                "  X X X X X  ",
+                "             ",
+                "             ",
+            };
             int w = lines[0].Length;
             int h = lines.Length;
             char[,] data = new char[w, h];
@@ -51,9 +60,8 @@ namespace GoishiHiroi {
                 var (x, y) = board.ToLocation(p);
                 // SetCursorPositionの座標は0から始まるので１引く
                 Console.SetCursorPosition(--x * 2, --y);
-                Console.Write('=');
+                Console.Write('-');
             }
-            Console.SetCursorPosition(0, data.GetLength(1) + 1);
         }
     }
 }
