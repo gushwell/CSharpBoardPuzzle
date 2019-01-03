@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CooperatedOthello", "Cooper
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LessThanThreePuzzle", "LessThanThreePuzzle\LessThanThreePuzzle.csproj", "{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberPlace", "NumberPlace\NumberPlace.csproj", "{7129504A-C1CE-4603-85FA-28E1F4A36C4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baikago", "Umehanago\baikago.csproj", "{7C2F5328-6443-4AE6-BEA2-B71F6A313894}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,5 +65,13 @@ Global
 		{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC0E2DE6-B4F3-48B9-858C-894A79A6E04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7129504A-C1CE-4603-85FA-28E1F4A36C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7129504A-C1CE-4603-85FA-28E1F4A36C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7129504A-C1CE-4603-85FA-28E1F4A36C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7129504A-C1CE-4603-85FA-28E1F4A36C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2F5328-6443-4AE6-BEA2-B71F6A313894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2F5328-6443-4AE6-BEA2-B71F6A313894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2F5328-6443-4AE6-BEA2-B71F6A313894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2F5328-6443-4AE6-BEA2-B71F6A313894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

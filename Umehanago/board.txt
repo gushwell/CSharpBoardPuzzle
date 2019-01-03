@@ -1,1 +1,14 @@
-﻿
+﻿   O           
+ O   OX        
+   X X    X    
+   X OX        
+ O OX     X X  
+  O   X        
+  X   OX  O X  
+ X O OOO O     
+      X        
+  XO O       X 
+         O     
+   O X O  X    
+   O     X     
+               
