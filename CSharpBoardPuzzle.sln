@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LessThanThreePuzzle", "Less
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberPlace", "NumberPlace\NumberPlace.csproj", "{7129504A-C1CE-4603-85FA-28E1F4A36C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baikago", "Umehanago\baikago.csproj", "{7C2F5328-6443-4AE6-BEA2-B71F6A313894}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baikago", "baikago\baikago.csproj", "{7C2F5328-6443-4AE6-BEA2-B71F6A313894}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
