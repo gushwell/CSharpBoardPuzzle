@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LessThanThreePuzzle", "Less
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberPlace", "NumberPlace\NumberPlace.csproj", "{7129504A-C1CE-4603-85FA-28E1F4A36C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baikago", "baikago\baikago.csproj", "{7C2F5328-6443-4AE6-BEA2-B71F6A313894}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "baikago", "baikago\baikago.csproj", "{7C2F5328-6443-4AE6-BEA2-B71F6A313894}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,5 +73,17 @@ Global
 		{7C2F5328-6443-4AE6-BEA2-B71F6A313894}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C2F5328-6443-4AE6-BEA2-B71F6A313894}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C2F5328-6443-4AE6-BEA2-B71F6A313894}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.TabsToSpaces = True
+		$2.EolMarker = Unix
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.VersionControlPolicy = $4
 	EndGlobalSection
 EndGlobal
